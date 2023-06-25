@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Condensed&display=swap');
+/* 
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Ubuntu Condensed', sans-serif;
+
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(360deg, #e9d2d2, #b9aeae);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    border-bottom: 4px solid purple;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    display: flex;
+    align-items: center;justify-content: center;
+    margin-bottom: 0 !important;
+}
+
+
+nav ul li{
+    margin: 5px 10px;
+    padding: 6px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* flex-direction: column; */
+}
+
+main h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'Ubuntu', sans-serif;
+    
+    text-transform: capitalize;
+}
+
+main p{
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 600;
+    background-image: url(/rockets.png);
+    background-size: 250px;
+    background-repeat: repeat;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-top: 8px;
+    background-image: repeating-radial-gradient(circle closest-corner at 100px 100px, #1b142f, #4e405c 10%, #221055 20%);;
+}
+
+.left p{
+    margin-left: 16px;
+}
+
+.side{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.side .input{
+    width: 80%;
+    display: flex;flex-direction: column;align-content: center;justify-content: center;
+}
+
+.side input,button{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid purple;
+    outline: none;
+    background: #6716676e;
+    color: white;
+    margin: 8px 0px;
+    transition: .8s;
+}
+.side input{
+    background: #2c092c6e;
+}
+.side input::placeholder{
+    color: white;
+}
+.side button:hover{
+    background: white;
+    color: purple;
+}
+.side button:active{
+    transform: scale(1.1,1.1);
+}
+
+.left {
+    padding: 10px 15px;
+}
+.left p, .left h1{
+    text-align: left;
+}
+
+
+.more{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5rem auto;
+}
+
+
+.right h1,h3,p{
+    margin: .8rem 0px;
+    width: 100%;
+}
+
+.icons{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.icons a{
+    margin: .5rem;
+    font-size: 2rem;
+    color: purple;
+}
+
+
+.content{
+    width: 80%;
+}
+
+.weatherValue{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.first{
+    width: 100%;
+    height: auto;
+    display: flex;align-items: center;justify-content: space-between;
+}
+
+
+
+@media screen and (max-width:800px) {
+    html{
+        font-size: 85%;
+    }
+    main{
+        height: auto;
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+    main .side{
+        width: 100%;
+    }
+    main .right{
+        margin: 2rem auto;
+    }
+}
+
+
+@media screen and (max-width:500px){
+    html{
+        font-size: 60%;
+    }
+}
+
+
+@media screen and (max-width:380px) {
+    header{
+        flex-direction: column;
+        padding: 10px 0px;
+    }
+}
+
+

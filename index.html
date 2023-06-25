@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GH-Wheather App </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+
+
+    <header>
+        <h1>GH-Wheather</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About </a></li>
+                <li><a href="#">Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <main class="main">
+
+
+        <div class="left side">
+            <h1>Oh know what is your weather status  </h1>
+            <p>Enter your city name to check your city current wheather </p>
+            
+        </div>
+
+
+        <div class="right side">
+            <div class="content">
+                <div class="first">
+                    <h3 class="cityname">City Name (peshawar) </h3>
+                    <img src="" alt="" id="img">
+                </div>
+                <div class="weatherValue">
+                    <h1>
+                        <span class="cen"></span>C <sup
+                            style="font-size:1.5rem;color:purple !important; margin-bottom: 10px;">o</sup>
+                    </h1>
+                    <h1>
+                        <span class="faren"></span>F <sup
+                            style="font-size:1.5rem;color:purple !important; margin-bottom: 10px;">o</sup>
+                    </h1>
+                </div>
+                <div class="more">
+                    <span>more info </span>
+                    <span>more info</span>
+                </div>
+            </div>
+            <div class="input">
+                <input type="text" id="input" placeholder="Type City Name ">
+                <button id="btn">Check Status </button>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="icons">
+        
+
+        <a href="https://web.facebook.com/profile.php?id=100088083142804"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://wa.me/+923251857693"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://github.com/mhgkhan"><i class="fa-brands fa-github"></i></a>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+        integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+
+        let content = document.querySelector(".content"),
+            cityName = document.querySelector(".cityname"),
+            wheatherValue = document.querySelector(".weatherValue"),
+            spans = document.querySelectorAll(".more span"),
+            centegrade = document.querySelector(".cen"),
+            fer = document.querySelector(".faren"),
+            img = document.getElementById("img")
+
+
+
+        let input = document.getElementById("input"),
+            btn = document.getElementById("btn")
+
+        window.addEventListener("load", async e => {
+            let city = "Pehsawar"
+            api = `https://api.weatherapi.com/v1/current.json?key=12509c01201f4e909b065430232506%20&q=${city}&aqi=no`
+            // console.log(api)
+
+            const datafetch = await fetch(`https://api.weatherapi.com/v1/current.json?key=12509c01201f4e909b065430232506%20&q=Peshawar&aqi=no`)
+            const data = await datafetch.json()
+            // console.log(data);
+            cityName.innerHTML = data.location.name
+            centegrade.innerHTML = data.current.temp_c
+            fer.innerHTML = data.current.temp_f
+            img.src = data.current.condition.icon
+            spans[0].innerHTML = data.location.localtime
+            spans[1].innerHTML = data.location.country
+        })
+
+
+
+        btn.addEventListener("click", async e => {
+            if (input.value.length < 3) {
+                alert("please enter valid city name ")
+                input.value = " "
+            }
+
+            else {
+
+                const fetchdata = await fetch(`https://api.weatherapi.com/v1/current.json?key=12509c01201f4e909b065430232506%20&q=${input.value}&aqi=no`)
+
+                const data = await fetchdata.json();
+
+                // console.log(data)
+
+                cityName.innerHTML = data.location.name
+                centegrade.innerHTML = data.current.temp_c
+                fer.innerHTML = data.current.temp_f
+                img.src = data.current.condition.icon
+                spans[0].innerHTML = data.location.localtime
+                spans[1].innerHTML = data.location.country
+
+
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
